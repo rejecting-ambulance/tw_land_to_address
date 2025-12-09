@@ -27,8 +27,7 @@ def set_chrome_options(headless: bool = False):
 def initialize_web(driver, url: str):
     try:
         driver.get(url)
-        # 等待 1 秒（題目要求）
-        time.sleep(1)
+        time.sleep(0.5)
 
         # 使用 ActionChains 傳送 ESC 鍵（按 5 次）
         actions = ActionChains(driver)
@@ -214,11 +213,7 @@ if __name__ == "__main__":
     {"city": "桃園市", "area": "中壢區", "section": "中原段", "landcode": "1115"}
     ]
 
-    url = "https://maps.nlsc.gov.tw/T09/mapshow.action#"
-    driver = set_chrome_options(headless=False)
-    initialize_web(driver, url)
-    location_dict = location2lat_chrome(driver, data_list)
-    print(location_dict)
+    location2lat(data_list)
 
 
     
